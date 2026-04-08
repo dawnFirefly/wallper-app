@@ -163,16 +163,15 @@ wallper-app/
 - **Xcode** 15+
 - **Swift** 5.9+
 
-### Quick Start
+### Explore the Source
 
 ```bash
 # Clone the repository
 git clone https://github.com/alxndlk/wallper-app.git
 cd wallper-app
-
-# Open in Xcode
-open Wallper.xcodeproj
 ```
+
+Browse the `open-source-code/` directory to study the core wallpaper engine, boot sequence, and app lifecycle management.
 
 > **Note:** The full Xcode project is private. This repository contains selected open-source components for educational and reference purposes.
 
