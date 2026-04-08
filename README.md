@@ -751,7 +751,7 @@ Join the Wallper community to share wallpapers, request features, and get help:
 
 ### Community Stats
 
-- ⭐ **317+** GitHub stars
+- ⭐ Growing GitHub community — [star the repo!](https://github.com/alxndlk/wallper-app/stargazers)
 - 👥 **50,000+** active users (as of March 2026)
 - 🎬 **2,000+** wallpapers in the library
 - 🌍 **10** languages supported
