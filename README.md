@@ -1,11 +1,4 @@
 <div align="center">
-
-<br />
-
-<img width="180" height="180" alt="Wallper App Icon" src="https://github.com/user-attachments/assets/ba9fd97a-3798-4d1a-bd6e-07f13555efa6" />
-
-<br />
-
 # Wallper
 
 **Live 4K video wallpapers for macOS — seamless, silent, beautiful.**
@@ -32,10 +25,6 @@
 > **Wallper is closed-source proprietary software.**
 > This repository hosts releases, documentation, and community resources.
 > Source code is not publicly available.
-
-<br />
-
-<img width="100%" alt="Wallper App Preview" src="https://raw.githubusercontent.com/alxndlk/sandimax-site/master/public/wallper/wallper-bg.png" />
 
 <br />
 
@@ -309,52 +298,6 @@ Automatically rotate through your wallpaper collection.
 Wallper is available in multiple languages: English, Chinese, Russian, French, Italian, Spanish, Ukrainian, Japanese, Korean, German.
 
 ---
-
-## Architecture
-
-Wallper is a native macOS application with a cloud backend. The app communicates with the backend over HTTPS/JSON, and all video content is delivered via a global CDN.
-
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                          Wallper · macOS App                          │
-│                                                                      │
-│  ┌─────────────┐  ┌─────────────────┐  ┌──────────────────────────┐ │
-│  │   SwiftUI   │  │ Video Wallpaper │  │   Music Sync Engine      │ │
-│  │  Interface   │  │    Manager      │  │  Apple Music · Spotify   │ │
-│  └──────┬──────┘  └───────┬─────────┘  └────────────┬─────────────┘ │
-│         │                 │                          │               │
-│  ┌──────▼─────────────────▼──────────────────────────▼─────────────┐ │
-│  │  AVKit · Metal · CoreAnimation · CoreImage · CoreGraphics       │ │
-│  │  Combine · AVPlayerLooper · CAShapeLayer · NSCache              │ │
-│  │  AVFoundation · VideoToolbox (HEVC encoding)                    │ │
-│  └──────────────────────────┬──────────────────────────────────────┘ │
-│                             │                                        │
-│  ┌──────────────────────────▼──────────────────────────────────────┐ │
-│  │  System Integration                                             │ │
-│  │  ├── FullscreenMonitor    (workspace notifications)             │ │
-│  │  ├── CPUMonitor           (load-based pause)                    │ │
-│  │  ├── PowerMonitor         (battery-aware pause)                 │ │
-│  │  ├── ScreenMonitor        (display change detection)            │ │
-│  │  ├── LaunchBootstrapper   (update → ban → license → ready)     │ │
-│  │  └── SMAppService         (Launch at Login)                     │ │
-│  └─────────────────────────────────────────────────────────────────┘ │
-└────────────────────────────────┬─────────────────────────────────────┘
-                                 │ HTTPS / JSON
-┌────────────────────────────────▼─────────────────────────────────────┐
-│                        Cloud Infrastructure                          │
-│                                                                      │
-│  API Gateway → AWS Lambda (Node.js) → DynamoDB (metadata, users)    │
-│                                                                      │
-│  S3 / MinIO (video storage) → CloudFront CDN (global delivery)      │
-│                                                                      │
-│  Backend services:                                                   │
-│  ├── Video library generation (server-side)                          │
-│  ├── Preview generation (backend-rendered thumbnails)                │
-│  ├── Upload processing (metadata validation, color detection)        │
-│  ├── License validation & device management                          │
-│  └── Update & ban checking                                           │
-└──────────────────────────────────────────────────────────────────────┘
-```
 
 **Key design decisions:**
 
