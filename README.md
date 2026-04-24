@@ -1,5 +1,6 @@
 <div align="center">
-# Wallper
+
+# Wallper - MacOS Live Wallpapers App
 
 **Live 4K video wallpapers for macOS — seamless, silent, beautiful.**
 
