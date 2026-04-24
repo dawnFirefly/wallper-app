@@ -46,7 +46,6 @@
 ## Table of Contents
 
 - [Features](#features)
-- [Screenshots](#screenshots)
 - [Video Wallpapers](#video-wallpapers)
 - [Music Sync](#music-sync)
 - [Multi-Display](#multi-display)
@@ -58,7 +57,6 @@
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
 - [Install](#install)
-- [What's New](#whats-new)
 - [FAQ](#faq)
 - [Community](#community)
 - [Security](#security)
@@ -70,7 +68,7 @@
 
 ### Video Wallpapers
 
-- **2,000+** curated 4K wallpapers in the cloud library
+- Curated 4K wallpapers in the cloud library
 - 4K / 60fps H.264 & H.265 playback
 - Metal-optimized rendering pipeline
 - Low-latency hardware decoding
@@ -97,7 +95,7 @@
 - Intelligent search across wallpapers, tags & colors
 - Background downloads with progress tracking
 - Efficient in-memory caching for instant scrolling
-- Lazy batch loading — 2,000+ wallpapers, no lag
+- Lazy batch loading — no lag on large libraries
 - "Recommended For You" & "Recently Created" sections
 
 ### Security & Updates
@@ -109,7 +107,6 @@
 - License validation & multi-device management
 - Battery-aware pause
 - Apple Silicon native (M1/M2/M3/M4)
-- App size ~27 MB
 
 ### Music Sync
 
@@ -130,29 +127,9 @@
 
 ---
 
-## Screenshots
-
-<div align="center">
-
-<br />
-
-<img width="49%" alt="Wallper in macOS Wallpaper Settings" src="https://github.com/user-attachments/assets/cb9dd6ac-a773-4f59-81cc-00af377b0496" />
-<img width="49%" alt="Device Manager" src="https://github.com/user-attachments/assets/703e7035-533c-4e7b-afa0-fddc06afd156" />
-
-<br /><br />
-
-<img width="49%" alt="Lock Screen Setup" src="https://github.com/user-attachments/assets/6778193b-857a-433d-bd93-574aaa898807" />
-<img width="49%" alt="Settings — Cache Management" src="https://github.com/user-attachments/assets/f6ebaa5c-3009-44e5-8204-7cc2edb5f217" />
-
-<br />
-
-</div>
-
----
-
 ## Video Wallpapers
 
-Wallper turns your macOS desktop into a living canvas with **2,000+** curated 4K video wallpapers.
+Wallper turns your macOS desktop into a living canvas with a curated library of 4K video wallpapers.
 
 **How it works:**
 
@@ -199,14 +176,13 @@ Wallper reacts to your music in real time, syncing your desktop and lock screen 
 - When one player pauses, wallpaper automatically switches to the other active player
 - When both players are paused, original wallpaper and lock screen are restored
 - Active player state tracked in real-time via system notifications
-- Debounced pause handling (400ms) prevents rapid flickers
+- Debounced pause handling to prevent rapid flickers
 
 **Performance:**
 
 - Artwork cached in memory — returning to a previously played album skips the download
-- Lock screen video rendered at optimized 720p/24fps
+- Lock screen video rendered at a reduced resolution for faster encoding
 - Three-tier lockscreen caching: fast path → cache path → slow path (full download + transcode)
-- Mesh gradient timer at 20fps — 33% less CPU, visually identical
 - Smooth lerp interpolation for cursor-reactive gradients
 
 ---
@@ -246,9 +222,9 @@ Wallper fully supports multi-monitor setups with independent per-display control
 
 Set any Wallper video as your lock screen wallpaper. Appears natively in System Settings → Wallpapers. HEVC 10-bit full transcode ensures consistent playback across all video sources. Automatic restore after unlock, stable across multiple lock/unlock cycles.
 
-**Screen Saver**
+**Screen Saver (macOS 26+)**
 
-First truly native video screen saver for macOS. Apple notarized — no administrator rights required. Extremely low resource usage. Works independently of the Wallper app. Videos automatically converted to `.mov` with HEVC encoding.
+Native video screen saver for macOS. Apple notarized — no administrator rights required. Works independently of the Wallper app. Videos automatically converted to `.mov` with HEVC encoding.
 
 **macOS compatibility:**
 
@@ -256,7 +232,7 @@ First truly native video screen saver for macOS. Apple notarized — no administ
 |:--------|:------------|:----------|
 | Desktop wallpaper | ✅ | ✅ |
 | Lock screen | — | ✅ Native |
-| Screen saver | Partial | ✅ Full |
+| Screen saver | — | ✅ |
 | Music desktop sync | ✅ gradient image | ✅ gradient video |
 
 ---
@@ -330,7 +306,7 @@ Automatically rotate through your wallpaper collection.
 
 ## Localization
 
-Wallper is available in 10 languages: English, Chinese, Russian, French, Italian, Spanish, Ukrainian, Japanese, Korean, German.
+Wallper is available in multiple languages: English, Chinese, Russian, French, Italian, Spanish, Ukrainian, Japanese, Korean, German.
 
 ---
 
@@ -401,7 +377,7 @@ Wallper is a native macOS application with a cloud backend. The app communicates
 | Encoding | H.264 · H.265 (HEVC 10-bit) · VideoToolbox · .mov / .mp4 |
 | Infrastructure | HTTPS · JSON APIs · GZIP compression · CORS · CDN |
 | DevOps | GitHub Actions · macOS Code Signing · Notarization · GitHub Releases |
-| Payments | Stripe (one-time purchase, auto-refund within 14 days) |
+| Payments | Stripe (one-time purchase) |
 | Website | [wallper.app](https://wallper.app) — Next.js · TypeScript · Vercel |
 
 ---
@@ -412,7 +388,6 @@ Wallper is a native macOS application with a cloud backend. The app communicates
 
 - macOS 13.0 (Ventura) or later
 - Apple Silicon (M1/M2/M3/M4) or Intel Mac
-- ~27 MB disk space
 - Internet required for library browsing; offline playback after download
 
 <div align="center">
@@ -420,8 +395,6 @@ Wallper is a native macOS application with a cloud backend. The app communicates
 <br />
 
 **[⬇️ Download Wallper.dmg](https://github.com/alxndlk/wallper-app/releases/latest)**
-
-*Current version: **v1.7.2** — [View all releases](https://github.com/alxndlk/wallper-app/releases)*
 
 <br />
 
@@ -442,79 +415,6 @@ Wallper is a native macOS application with a cloud backend. The app communicates
 1. Quit Wallper from the menu bar
 2. Drag Wallper from Applications to Trash
 3. Optionally clear cache: `~/Library/Caches/com.sandimax.wallper`
-
----
-
-## What's New
-
-### v1.7.2 — Deep Links & Share Fixes *(April 2026)*
-
-- Shared wallpaper links on wallper.app now have an "Open on Wallper" button that launches the video directly in the app
-- New `wallper://` deep link protocol — clicking the link opens Wallper and navigates to the wallpaper
-- Fixed shared wallpaper links returning 404 due to UUID case mismatch
-
-### v1.7.1 — In-App Updates *(April 2026)*
-
-- Orange dot on menubar icon when a new update is available
-- New Software Update screen with full release notes pulled from GitHub
-- Background update checks every ~30 minutes; macOS notification when a new version drops
-- Fixed a bug where a failed wallpaper load caused an infinite retry loop, potentially freezing the system
-
-### v1.7.0 — Memory, Performance & Local Media *(April 2026)*
-
-- App now properly frees memory when you close the window
-- Fixed CPU staying high after opening and closing the window multiple times
-- Duration and resolution for imported videos now persist after restart
-- Right-click context menu on rows: Set as Wallpaper, Rename, Delete
-- Fixed entries.json for "Restore System Aerials" feature
-
-### v1.6.6 — Performance & UI Polish *(April 2026)*
-
-- Explore tab now loads wallpapers in batches as you scroll
-- Tab switching is significantly snappier — content released from memory on leave
-- Wallpaper name in menu bar now always displays correctly
-- Close buttons throughout the app are easier to click — full area is clickable
-
-### v1.6.3 — Dual Player & Desktop Sync *(March 2026)*
-
-- Apple Music + Spotify simultaneous support with automatic switching
-- Desktop background sync — music-reactive 4K gradient on macOS 14–15
-- Three-tier lockscreen caching pipeline (fast → cache → slow)
-
-### v1.6.1 — Music-Reactive Wallpapers *(March 2026)*
-
-- Album-colored animated mesh gradient with organic blob motion
-- k-means++ color clustering from album artwork
-- Lockscreen video sync (macOS 26+)
-- Playback controls in dock and menu bar
-
-### v1.6.0 — 50K Users Milestone *(March 2026)*
-
-- 50,000 active users
-- Fixed lock screen black screen after unlock/re-lock (6-month bug)
-- Offline startup — wallpapers load instantly without internet
-- All trials reset as community thank-you gift
-
-### v1.5.0 — Playback Settings & Power Management *(January 2026)*
-
-- New Playback Settings tab (quality, resolution, frame rate, volume, speed, transitions)
-- FullscreenMonitor, CPUMonitor — wallpapers pause intelligently
-- All settings apply instantly without reload
-
-### v1.4.0 — Major UI Overhaul *(January 2026)*
-
-- Completely redesigned Menu Bar, Bottom Control Panel, Settings, My Library
-- Global search across wallpapers, tags & colors
-- Lock screen support (macOS 26+)
-- Shuffle mode with liked/downloaded wallpapers
-- New onboarding flow
-
-<details>
-<summary>View all releases →</summary>
-
-See the full [Releases page](https://github.com/alxndlk/wallper-app/releases) for every version since v1.0.0.
-
-</details>
 
 ---
 
@@ -545,7 +445,7 @@ Yes. Use My Media to import local video files directly into the app. Videos are 
 <summary>Does it work as a Lock Screen / Screen Saver?</summary>
 <br />
 Lock Screen: fully supported on macOS 26+ (Tahoe). Not available on older macOS versions due to system-level limitations.<br />
-Screen Saver: fully supported on macOS 26+, partially on older versions. The screen saver is Apple notarized and works independently of the main app.
+Screen Saver: requires macOS 26 (Tahoe). The screen saver is Apple notarized and works independently of the main app.
 <br /><br />
 </details>
 
@@ -573,14 +473,14 @@ macOS 13.0 (Ventura) and later. Lock screen and native screen saver require macO
 <details>
 <summary>Is there a free trial?</summary>
 <br />
-Yes. Wallper offers a 7-day free trial with full access to all features. No credit card required to start.
+Yes. Wallper offers a free trial with full access to all features. No credit card required to start.
 <br /><br />
 </details>
 
 <details>
 <summary>Can I get a refund?</summary>
 <br />
-Yes. Automatic refunds are available for purchases within 14 days. Contact <a href="mailto:support@wallper.app">support@wallper.app</a>.
+Yes. Contact <a href="mailto:support@wallper.app">support@wallper.app</a> for refund requests.
 <br /><br />
 </details>
 
@@ -591,15 +491,8 @@ Yes. Automatic refunds are available for purchases within 14 days. Contact <a hr
 | Channel | Link |
 |:--------|:-----|
 | Discord | [discord.gg/ksxrdnETuc](https://discord.gg/ksxrdnETuc) |
-| Reddit | [r/Sandimax](https://www.reddit.com/r/Sandimax/) |
 | GitHub Issues | [Report bugs & request features](https://github.com/alxndlk/wallper-app/issues) |
 | Email | [support@wallper.app](mailto:support@wallper.app) |
-| Telegram | [@alxndlk](https://t.me/alxndlk) |
-
-- 50,000+ active users
-- 2,000+ wallpapers in the library
-- 10 languages supported
-- 25+ releases since launch
 
 ---
 
