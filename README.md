@@ -218,7 +218,7 @@ Native video screen saver for macOS. Apple notarized — no administrator rights
 
 **macOS compatibility:**
 
-| Feature | macOS 13–15 | macOS 26+ |
+| Feature | macOS 14–15 | macOS 26+ |
 |:--------|:------------|:----------|
 | Desktop wallpaper | ✅ | ✅ |
 | Lock screen | — | ✅ Native |
@@ -330,7 +330,7 @@ Wallper is available in multiple languages: English, Chinese, Russian, French, I
 
 **Requirements:**
 
-- macOS 13.0 (Ventura) or later
+- macOS 14.0 or later
 - Apple Silicon (M1/M2/M3/M4) or Intel Mac
 - Internet required for library browsing; offline playback after download
 
@@ -410,7 +410,7 @@ Wallper monitors Apple Music and Spotify. When a track plays, Wallper extracts c
 <details>
 <summary>What macOS versions are supported?</summary>
 <br />
-macOS 13.0 (Ventura) and later. Lock screen and native screen saver require macOS 26 (Tahoe). Apple Silicon and Intel Macs are both supported.
+macOS 14.0 and later. Lock screen and native screen saver require macOS 26 (Tahoe). Apple Silicon and Intel Macs are both supported.
 <br /><br />
 </details>
 
