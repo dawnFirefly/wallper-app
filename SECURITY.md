@@ -2,7 +2,7 @@
 
 ## 🔒 Reporting a Vulnerability
 
-We take the security of Wallper seriously. If you believe you've found a security vulnerability, **please report it responsibly**.
+We take security seriously. If you believe you've found a security vulnerability in Wallper, **please report it responsibly**.
 
 ### How to Report
 
@@ -27,15 +27,13 @@ We take the security of Wallper seriously. If you believe you've found a securit
 ### Scope
 
 This policy applies to vulnerabilities in:
-
-- The Wallper macOS application
+- The open-source code in this repository
+- Wallper's macOS application binary
 - Wallper's backend API endpoints
-- The wallper.app website
 
 ### Safe Harbor
 
 We will not take legal action against researchers who:
-
 - Report vulnerabilities in good faith
 - Do not access or modify user data
 - Do not disrupt service availability
