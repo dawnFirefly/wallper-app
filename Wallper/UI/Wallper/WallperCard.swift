@@ -125,7 +125,7 @@ struct WallperCard: View {
                     HStack {
                         Spacer()
                         
-                        if (item.sizeMB != nil ) {
+                        if item.sizeMB != nil {
                             HStack(spacing: 6) {
                                 
                                 

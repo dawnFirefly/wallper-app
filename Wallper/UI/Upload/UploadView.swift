@@ -215,7 +215,7 @@ struct UploadView: View {
         [
             ("sparkles", "4K Quality", "Upload UHD videos."),
             ("bolt", "Fast Uploads", "Up to 500MB per file."),
-            ("lock.shield", "Secure Uploads", "Safty video transfer."),
+            ("lock.shield", "Secure Uploads", "Safety video transfer."),
             ("icloud", "Shared Library", "Reviewed gallery."),
             ("wand.and.stars", "Auto Enhancements", "Optimize your videos."),
             ("eye.slash", "Contribute & Inspire", "Join the creators.")
