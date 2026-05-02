@@ -141,11 +141,9 @@
 
 ```
 wallper-app/
-├── open-source-code/
-│   ├── app-delegate.swift        # App lifecycle, notifications, power & screen monitoring
-│   ├── launch.manager.swift      # Boot sequence: update check → ban check → ready
-│   ├── launch.provider.swift     # License manager convenience extension
-│   └── video.manager.swift       # Core wallpaper engine: playback, transforms, adaptation
+├── Wallper/                  # App source (SwiftUI, Core, UI, Network, Store)
+├── Wallper.xcodeproj/        # Xcode project
+├── open-source-code/         # Curated open-source extracts (legacy)
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
@@ -163,7 +161,7 @@ wallper-app/
 - **Xcode** 15+
 - **Swift** 5.9+
 
-### Explore the Source
+### Build the App
 
 ```bash
 # Clone the repository
@@ -171,9 +169,13 @@ git clone https://github.com/alxndlk/wallper-app.git
 cd wallper-app
 ```
 
-Browse the `open-source-code/` directory to study the core wallpaper engine, boot sequence, and app lifecycle management.
+Open `Wallper.xcodeproj` in Xcode, select the **Wallper** scheme, choose your development team for signing, and build/run (⌘R).
 
-> **Note:** The full Xcode project is private. This repository contains selected open-source components for educational and reference purposes.
+```bash
+xcodebuild -project Wallper.xcodeproj -scheme Wallper -configuration Debug build
+```
+
+Browse `Wallper/` for the full app source. The `open-source-code/` directory remains as a smaller reference subset.
 
 ---
 
