@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import AppKit
 import CoreGraphics
+import IOKit
 
 final class LicenseManager: ObservableObject {
     @Published private(set) var isChecked = false
@@ -105,7 +106,26 @@ final class BanChecker {
 
 enum HWIDProvider {
     static func getHWID() -> String {
-        Host.current().localizedName ?? UUID().uuidString
+        let service = IOServiceGetMatchingService(kIOMainPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
+        defer {
+            if service != 0 {
+                IOObjectRelease(service)
+            }
+        }
+
+        guard service != 0,
+              let cfUUID = IORegistryEntryCreateCFProperty(
+                service,
+                "IOPlatformUUID" as CFString,
+                kCFAllocatorDefault,
+                0
+              )?.takeRetainedValue(),
+              let uuid = cfUUID as? String,
+              !uuid.isEmpty else {
+            return UUID().uuidString
+        }
+
+        return uuid
     }
 }
 
