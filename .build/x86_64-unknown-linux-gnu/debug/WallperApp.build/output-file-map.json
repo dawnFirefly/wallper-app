@@ -1,0 +1,47 @@
+{
+  "": {
+    "swift-dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/primary.swiftdeps"
+  },
+  "/home/runner/work/wallper-app/wallper-app/open-source-code/app-delegate.swift": {
+    "dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/app-delegate.d",
+    "object": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/app-delegate.swift.o",
+    "swiftmodule": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/app-delegate~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/app-delegate.swiftdeps",
+    "diagnostics": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/app-delegate.dia"
+  },
+  "/home/runner/work/wallper-app/wallper-app/open-source-code/launch.manager.swift": {
+    "dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.manager.d",
+    "object": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.manager.swift.o",
+    "swiftmodule": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.manager~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.manager.swiftdeps",
+    "diagnostics": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.manager.dia"
+  },
+  "/home/runner/work/wallper-app/wallper-app/open-source-code/launch.provider.swift": {
+    "dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.provider.d",
+    "object": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.provider.swift.o",
+    "swiftmodule": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.provider~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.provider.swiftdeps",
+    "diagnostics": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/launch.provider.dia"
+  },
+  "/home/runner/work/wallper-app/wallper-app/open-source-code/main.swift": {
+    "dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/main.d",
+    "object": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/main.swift.o",
+    "swiftmodule": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/main~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/main.swiftdeps",
+    "diagnostics": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/main.dia"
+  },
+  "/home/runner/work/wallper-app/wallper-app/open-source-code/stubs.swift": {
+    "dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/stubs.d",
+    "object": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/stubs.swift.o",
+    "swiftmodule": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/stubs~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/stubs.swiftdeps",
+    "diagnostics": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/stubs.dia"
+  },
+  "/home/runner/work/wallper-app/wallper-app/open-source-code/video.manager.swift": {
+    "dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/video.manager.d",
+    "object": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/video.manager.swift.o",
+    "swiftmodule": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/video.manager~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/video.manager.swiftdeps",
+    "diagnostics": "/home/runner/work/wallper-app/wallper-app/.build/x86_64-unknown-linux-gnu/debug/WallperApp.build/video.manager.dia"
+  }
+}
