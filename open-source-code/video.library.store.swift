@@ -3,6 +3,8 @@ import AVFoundation
 import Combine
 
 final class VideoLibraryStore: ObservableObject {
+    private static let invalidDuration: TimeInterval = -1
+
     @Published private(set) var videos: [VideoAsset] = []
     @Published private(set) var lastError: String?
 
@@ -65,7 +67,7 @@ final class VideoLibraryStore: ObservableObject {
 
             let avAsset = AVURLAsset(url: targetURL)
             let durationSeconds = CMTimeGetSeconds(avAsset.duration)
-            asset.duration = durationSeconds.isFinite ? durationSeconds : -1
+            asset.duration = durationSeconds.isFinite ? durationSeconds : Self.invalidDuration
             if let track = avAsset.tracks(withMediaType: .video).first {
                 let transformed = track.naturalSize.applying(track.preferredTransform)
                 asset.width = Int(abs(transformed.width))
