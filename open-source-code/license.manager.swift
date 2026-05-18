@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import CryptoKit
 
 final class LicenseManager: ObservableObject {
     @Published private(set) var isChecked = false
@@ -108,10 +109,9 @@ final class LicenseManager: ObservableObject {
     }
 
     private static func expectedToken(for hwid: String, salt: String) -> String {
-        let seed = Array("\(salt)-\(hwid)".utf8)
-        let hash = seed.reduce(UInt64(5381)) { partial, byte in
-            ((partial << 5) &+ partial) &+ UInt64(byte)
-        }
-        return "WALLPER-\(String(hash, radix: 36).uppercased())"
+        let input = Data("\(salt)-\(hwid)".utf8)
+        let digest = SHA256.hash(data: input)
+        let prefix = digest.prefix(8).map { String(format: "%02X", $0) }.joined()
+        return "WALLPER-\(prefix)"
     }
 }

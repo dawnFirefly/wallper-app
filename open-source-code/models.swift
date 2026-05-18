@@ -19,6 +19,15 @@ enum LicenseStatus: String, Codable {
     case free
     case valid
     case invalid
+
+    var displayLabel: String {
+        switch self {
+        case .unverified: return "Unverified"
+        case .free: return "Free"
+        case .valid: return "Activated"
+        case .invalid: return "Invalid"
+        }
+    }
 }
 
 struct LicenseRecord: Codable {

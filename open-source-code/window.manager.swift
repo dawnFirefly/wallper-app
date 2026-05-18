@@ -25,7 +25,11 @@ final class WindowManager: NSObject {
         if statusItem == nil {
             statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         }
-        statusItem?.button?.title = "🖼"
+        statusItem?.button?.title = ""
+        statusItem?.button?.image = NSImage(
+            systemSymbolName: "photo",
+            accessibilityDescription: "Wallper"
+        )
         statusItem?.button?.setAccessibilityLabel("Wallper")
 
         let menu = NSMenu()

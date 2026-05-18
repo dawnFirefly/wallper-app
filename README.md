@@ -153,7 +153,7 @@ wallper-app/
 │   ├── update.manager.swift          # Local/remote update feed check + version comparison
 │   ├── device.loader.swift           # Device/screen fingerprint and diagnostics logging
 │   ├── power.monitor.swift           # Battery-aware pause/restore behavior
-│   ├── display.settings.storage.swift# Persisted per-screen pan/zoom transforms
+│   ├── display.settings.storage.swift # Persisted per-screen pan/zoom transforms
 │   ├── screensaver.manager.swift     # Advanced-mode screensaver source staging
 │   └── *.swift                       # Supporting models, defaults, env, app paths, entrypoint
 ├── Package.swift

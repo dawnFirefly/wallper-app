@@ -39,7 +39,11 @@ final class VideoLibraryStore: ObservableObject {
 
     @discardableResult
     func importVideo(from sourceURL: URL) -> Bool {
-        let ext = sourceURL.pathExtension.isEmpty ? "mp4" : sourceURL.pathExtension
+        let ext = sourceURL.pathExtension
+        guard !ext.isEmpty else {
+            lastError = "The selected file must have a valid video extension."
+            return false
+        }
         let targetURL = AppPaths.libraryDirectory.appendingPathComponent("\(UUID().uuidString).\(ext)")
 
         do {

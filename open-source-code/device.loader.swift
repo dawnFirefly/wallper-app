@@ -7,7 +7,7 @@ enum HWIDProvider {
     private static let fallbackKey = "wallper.fallback.hwid"
 
     static func getHWID() -> String {
-        let service = IOServiceGetMatchingService(kIOMainPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
+        let service = IOServiceGetMatchingService(ioMainPort(), IOServiceMatching("IOPlatformExpertDevice"))
         defer {
             if service != 0 {
                 IOObjectRelease(service)
@@ -32,6 +32,17 @@ enum HWIDProvider {
         }
 
         return uuid
+    }
+
+    private static func ioMainPort() -> mach_port_t {
+        var mainPort: mach_port_t = 0
+        if #available(macOS 12.0, *) {
+            let result = IOMainPort(bootstrap_port, &mainPort)
+            if result == KERN_SUCCESS {
+                return mainPort
+            }
+        }
+        return kIOMasterPortDefault
     }
 }
 

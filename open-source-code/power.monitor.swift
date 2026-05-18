@@ -10,7 +10,7 @@ final class PowerMonitor {
     private init() {}
 
     func isCurrentlyOnBattery() -> Bool {
-        guard let source = IOPSGetProvidingPowerSourceType(nil)?.takeRetainedValue() as String? else {
+        guard let source = IOPSGetProvidingPowerSourceType(nil)?.takeUnretainedValue() as String? else {
             return false
         }
         return source == kIOPSBatteryPowerValue

@@ -30,7 +30,8 @@ final class UpdateManager: ObservableObject {
 
             await MainActor.run {
                 self.updateInfo = available
-                self.isUpdateAvailable = self.isNewer(available?.version ?? "", than: self.currentVersion)
+                let current = self.currentVersion
+                self.isUpdateAvailable = !current.isEmpty && self.isNewer(available?.version ?? "", than: current)
                 self.didFinishCheck = true
                 self.isChecking = false
             }
@@ -43,7 +44,12 @@ final class UpdateManager: ObservableObject {
     }
 
     private var currentVersion: String {
-        (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "0.0.0"
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+              !version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            print("[Update] Missing bundle version; skipping update availability check.")
+            return ""
+        }
+        return version
     }
 
     private func fetchLocalFeed() -> UpdateInfo? {
