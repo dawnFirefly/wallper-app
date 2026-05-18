@@ -173,7 +173,14 @@ cd wallper-app
 
 Browse the `open-source-code/` directory to study the core wallpaper engine, boot sequence, and app lifecycle management.
 
-> **Note:** The full Xcode project is private. This repository contains selected open-source components for educational and reference purposes.
+### Build on macOS
+
+```bash
+swift build
+swift run wallper-app
+```
+
+> **Note:** This restored repository includes a minimal open-source scaffold so the app can compile and run on macOS while proprietary services/features remain stubbed.
 
 ---
 
