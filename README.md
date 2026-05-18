@@ -173,7 +173,7 @@ cd wallper-app
 
 Browse the `open-source-code/` directory to study the core wallpaper engine, boot sequence, and app lifecycle management.
 
-### Build on macOS
+### Build Wallper on macOS
 
 ```bash
 swift build
