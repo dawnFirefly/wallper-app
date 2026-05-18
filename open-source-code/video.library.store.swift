@@ -56,7 +56,8 @@ final class VideoLibraryStore: ObservableObject {
             )
 
             let avAsset = AVURLAsset(url: targetURL)
-            asset.duration = CMTimeGetSeconds(avAsset.duration).isFinite ? CMTimeGetSeconds(avAsset.duration) : 0
+            let durationSeconds = CMTimeGetSeconds(avAsset.duration)
+            asset.duration = durationSeconds.isFinite ? durationSeconds : 0
             if let track = avAsset.tracks(withMediaType: .video).first {
                 let transformed = track.naturalSize.applying(track.preferredTransform)
                 asset.width = Int(abs(transformed.width))

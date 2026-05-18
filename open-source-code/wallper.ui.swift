@@ -34,7 +34,9 @@ private struct DashboardView: View {
                 Text("Wallper")
                     .font(.title2).bold()
                 Spacer()
-                Text("License: \(licenseManager.status.rawValue)")
+                let statusText = licenseManager.status.rawValue.capitalized
+                let statusIcon = licenseManager.status == .valid ? "checkmark.circle.fill" : "exclamationmark.triangle.fill"
+                Label("License: \(statusText)", systemImage: statusIcon)
                     .foregroundStyle(licenseManager.status == .valid ? .green : .orange)
             }
 

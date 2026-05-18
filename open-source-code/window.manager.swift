@@ -26,6 +26,7 @@ final class WindowManager: NSObject {
             statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         }
         statusItem?.button?.title = "🖼"
+        statusItem?.button?.setAccessibilityLabel("Wallper")
 
         let menu = NSMenu()
         menu.addItem(NSMenuItem(title: "Open Wallper", action: #selector(openApp), keyEquivalent: "o"))
