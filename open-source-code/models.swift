@@ -16,6 +16,7 @@ struct VideoAsset: Codable, Identifiable, Hashable {
 
 enum LicenseStatus: String, Codable {
     case unverified
+    case free
     case valid
     case invalid
 }

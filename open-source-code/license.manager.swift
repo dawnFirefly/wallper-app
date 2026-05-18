@@ -69,8 +69,8 @@ final class LicenseManager: ObservableObject {
                 lastError = "Invalid activation token."
             }
         } else {
-            record.status = .valid
-            status = .valid
+            record.status = .free
+            status = .free
             lastError = nil
         }
 

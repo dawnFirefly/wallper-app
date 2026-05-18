@@ -30,7 +30,11 @@ final class VideoLibraryStore: ObservableObject {
     }
 
     func loadCachedVideos() {
-        videos = videos.sorted { $0.createdAt > $1.createdAt }
+        guard let data = try? Data(contentsOf: AppPaths.libraryIndexFile),
+              let decoded = try? decoder.decode([VideoAsset].self, from: data) else {
+            return
+        }
+        videos = decoded.sorted { $0.createdAt > $1.createdAt }
     }
 
     @discardableResult

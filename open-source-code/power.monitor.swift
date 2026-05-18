@@ -4,6 +4,7 @@ import IOKit.ps
 final class PowerMonitor {
     static let shared = PowerMonitor()
 
+    private let pollingInterval: TimeInterval = 30
     private var timer: Timer?
 
     private init() {}
@@ -17,7 +18,7 @@ final class PowerMonitor {
 
     func startMonitoring() {
         guard timer == nil else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: 30, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: pollingInterval, repeats: true) { _ in
             self.checkPowerStatus()
         }
     }

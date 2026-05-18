@@ -4,6 +4,8 @@ import IOKit
 import Combine
 
 enum HWIDProvider {
+    private static let fallbackKey = "wallper.fallback.hwid"
+
     static func getHWID() -> String {
         let service = IOServiceGetMatchingService(kIOMainPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
         defer {
@@ -21,7 +23,12 @@ enum HWIDProvider {
               )?.takeRetainedValue(),
               let uuid = cfUUID as? String,
               !uuid.isEmpty else {
-            return UUID().uuidString
+            if let persisted = UserDefaults.standard.string(forKey: fallbackKey), !persisted.isEmpty {
+                return persisted
+            }
+            let generated = UUID().uuidString
+            UserDefaults.standard.set(generated, forKey: fallbackKey)
+            return generated
         }
 
         return uuid
