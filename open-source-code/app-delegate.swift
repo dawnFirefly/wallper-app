@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private var knownScreenIDs: Set<String> = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        DefaultsBootstrap.apply()
         NSApp.appearance = NSAppearance(named: .darkAqua)
         NSApp.setActivationPolicy(.accessory)
 

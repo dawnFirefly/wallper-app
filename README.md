@@ -142,14 +142,21 @@
 ```
 wallper-app/
 ├── open-source-code/
-│   ├── app-delegate.swift        # App lifecycle, notifications, power & screen monitoring
-│   ├── launch.manager.swift      # Boot sequence: update check → ban check → ready
-│   ├── launch.provider.swift     # License manager convenience extension
-│   └── video.manager.swift       # Core wallpaper engine: playback, transforms, adaptation
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── SECURITY.md
-├── license.md
+│   ├── app-delegate.swift            # App lifecycle and bootstrap orchestration
+│   ├── launch.manager.swift          # Startup pipeline: env → license → updates → ban → ready
+│   ├── window.manager.swift          # Status bar, main window, open/import/quit actions
+│   ├── wallper.ui.swift              # SwiftUI dashboard for import/apply/stop/settings
+│   ├── video.manager.swift           # Core wallpaper playback and display adaptation
+│   ├── video.library.store.swift     # Local library persistence and video metadata import
+│   ├── video.filter.store.swift      # Search and filter model for library browsing
+│   ├── license.manager.swift         # Local-first license state and activation validation
+│   ├── update.manager.swift          # Local/remote update feed check + version comparison
+│   ├── device.loader.swift           # Device/screen fingerprint and diagnostics logging
+│   ├── power.monitor.swift           # Battery-aware pause/restore behavior
+│   ├── display.settings.storage.swift# Persisted per-screen pan/zoom transforms
+│   ├── screensaver.manager.swift     # Advanced-mode screensaver source staging
+│   └── *.swift                       # Supporting models, defaults, env, app paths, entrypoint
+├── Package.swift
 └── README.md
 ```
 
@@ -180,7 +187,7 @@ swift build
 swift run wallper-app
 ```
 
-> **Note:** This restored repository includes a minimal open-source scaffold so the app can compile and run on macOS while proprietary services/features remain stubbed.
+> **Note:** This restored repository now provides a standalone local-first implementation suitable for building, debugging, and extension on macOS, while still avoiding proprietary backend dependencies.
 
 ---
 
