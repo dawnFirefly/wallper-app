@@ -10,7 +10,11 @@ final class ScreensaverManager {
     }
 
     func installOrUpdateSaver(with url: URL) {
-        let ext = url.pathExtension.isEmpty ? "mp4" : url.pathExtension
+        let ext = url.pathExtension.lowercased()
+        guard ["mp4", "mov", "m4v", "avi", "mkv"].contains(ext) else {
+            print("[Screensaver] Unsupported video extension: \(url.pathExtension)")
+            return
+        }
         let target = saverDir.appendingPathComponent("active.\(ext)")
 
         do {

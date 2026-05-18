@@ -58,7 +58,7 @@ private struct DashboardView: View {
                     HStack {
                         VStack(alignment: .leading, spacing: 2) {
                             Text(video.name).font(.headline)
-                            Text("\(video.resolutionLabel) • \(Int(video.duration))s")
+                            Text("\(video.resolutionLabel) • \(Int(video.duration.rounded()))s")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }

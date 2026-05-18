@@ -36,11 +36,9 @@ enum HWIDProvider {
 
     private static func ioMainPort() -> mach_port_t {
         var mainPort: mach_port_t = 0
-        if #available(macOS 12.0, *) {
-            let result = IOMainPort(bootstrap_port, &mainPort)
-            if result == KERN_SUCCESS {
-                return mainPort
-            }
+        let result = IOMainPort(bootstrap_port, &mainPort)
+        if result == KERN_SUCCESS {
+            return mainPort
         }
         return kIOMasterPortDefault
     }
@@ -103,7 +101,7 @@ func logDeviceToLambda() {
 }
 
 private func stableScreenID(for screen: NSScreen) -> String {
-    if let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber {
+    if let screenNumber = screen.deviceDescription[.screenNumber] as? NSNumber {
         return screenNumber.stringValue
     }
     return "\(Int(screen.frame.width))x\(Int(screen.frame.height))-\(Int(screen.frame.origin.x))-\(Int(screen.frame.origin.y))"

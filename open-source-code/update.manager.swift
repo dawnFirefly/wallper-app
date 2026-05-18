@@ -31,7 +31,11 @@ final class UpdateManager: ObservableObject {
             await MainActor.run {
                 self.updateInfo = available
                 let current = self.currentVersion
-                self.isUpdateAvailable = !current.isEmpty && self.isNewer(available?.version ?? "", than: current)
+                if let available, !current.isEmpty {
+                    self.isUpdateAvailable = self.isNewer(available.version, than: current)
+                } else {
+                    self.isUpdateAvailable = false
+                }
                 self.didFinishCheck = true
                 self.isChecking = false
             }

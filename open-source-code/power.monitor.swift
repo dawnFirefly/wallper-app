@@ -6,6 +6,7 @@ final class PowerMonitor {
 
     private let pollingInterval: TimeInterval = 30
     private var timer: Timer?
+    private var autoStoppedOnBattery = false
 
     private init() {}
 
@@ -26,9 +27,15 @@ final class PowerMonitor {
     func checkPowerStatus() {
         guard UserDefaults.standard.bool(forKey: "pauseOnBattery") else { return }
         if isCurrentlyOnBattery() {
-            VideoWallpaperManager.shared.stopCurrentWallpaper()
+            if !autoStoppedOnBattery {
+                VideoWallpaperManager.shared.stopCurrentWallpaper()
+                autoStoppedOnBattery = true
+            }
         } else if UserDefaults.standard.bool(forKey: "restoreLastWallpapers") {
-            WallpaperRestorer.restore()
+            if autoStoppedOnBattery {
+                WallpaperRestorer.restore()
+                autoStoppedOnBattery = false
+            }
         }
     }
 }

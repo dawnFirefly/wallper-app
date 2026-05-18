@@ -13,7 +13,11 @@ final class VideoLibraryStore: ObservableObject {
         decoder.dateDecodingStrategy = .iso8601
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        try? FileManager.default.createDirectory(at: AppPaths.libraryDirectory, withIntermediateDirectories: true)
+        do {
+            try FileManager.default.createDirectory(at: AppPaths.libraryDirectory, withIntermediateDirectories: true)
+        } catch {
+            lastError = "Failed to create library directory: \(error.localizedDescription)"
+        }
     }
 
     func loadAll() async {
@@ -61,7 +65,7 @@ final class VideoLibraryStore: ObservableObject {
 
             let avAsset = AVURLAsset(url: targetURL)
             let durationSeconds = CMTimeGetSeconds(avAsset.duration)
-            asset.duration = durationSeconds.isFinite ? durationSeconds : 0
+            asset.duration = durationSeconds.isFinite ? durationSeconds : -1
             if let track = avAsset.tracks(withMediaType: .video).first {
                 let transformed = track.naturalSize.applying(track.preferredTransform)
                 asset.width = Int(abs(transformed.width))
