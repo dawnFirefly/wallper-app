@@ -35,7 +35,7 @@ final class DeviceLoader: ObservableObject {
     func loadAllDevices() {
         let screens = NSScreen.screens.enumerated().map { index, screen in
             ScreenSnapshot(
-                id: screen.deviceIdentifier,
+                id: stableScreenID(for: screen),
                 width: Int(screen.frame.width),
                 height: Int(screen.frame.height),
                 scale: screen.backingScaleFactor,
@@ -57,7 +57,7 @@ final class DeviceLoader: ObservableObject {
 func logDeviceToLambda() {
     let screens = NSScreen.screens.enumerated().map { index, screen in
         ScreenSnapshot(
-            id: screen.deviceIdentifier,
+            id: stableScreenID(for: screen),
             width: Int(screen.frame.width),
             height: Int(screen.frame.height),
             scale: screen.backingScaleFactor,
@@ -82,4 +82,11 @@ func logDeviceToLambda() {
     } else {
         try? Data(line.utf8).write(to: fileURL, options: .atomic)
     }
+}
+
+private func stableScreenID(for screen: NSScreen) -> String {
+    if let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber {
+        return screenNumber.stringValue
+    }
+    return "\(Int(screen.frame.width))x\(Int(screen.frame.height))-\(Int(screen.frame.origin.x))-\(Int(screen.frame.origin.y))"
 }

@@ -29,7 +29,9 @@ final class VideoLibraryStore: ObservableObject {
         }
     }
 
-    func loadCachedVideos() {}
+    func loadCachedVideos() {
+        videos = videos.sorted { $0.createdAt > $1.createdAt }
+    }
 
     @discardableResult
     func importVideo(from sourceURL: URL) -> Bool {

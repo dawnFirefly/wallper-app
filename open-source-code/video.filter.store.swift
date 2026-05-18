@@ -1,15 +1,26 @@
 import Foundation
 import Combine
 
-struct VideoFilter: Identifiable, Hashable {
+enum VideoFilterKind: String, CaseIterable, Identifiable {
+    case all = "All"
+    case hd = "HD+"
+    case uhd = "4K+"
+    case short = "< 30s"
+
+    var id: String { rawValue }
+}
+
+struct VideoFilter: Identifiable {
     let id = UUID()
     let name: String
-    let predicate: (VideoAsset) -> Bool
+    let kind: VideoFilterKind
+}
 
-    static let all = VideoFilter(name: "All") { _ in true }
-    static let hd = VideoFilter(name: "HD+") { $0.width >= 1280 }
-    static let uhd = VideoFilter(name: "4K+") { $0.width >= 3840 }
-    static let short = VideoFilter(name: "< 30s") { $0.duration <= 30 }
+extension VideoFilter {
+    static let all = VideoFilter(name: VideoFilterKind.all.rawValue, kind: .all)
+    static let hd = VideoFilter(name: VideoFilterKind.hd.rawValue, kind: .hd)
+    static let uhd = VideoFilter(name: VideoFilterKind.uhd.rawValue, kind: .uhd)
+    static let short = VideoFilter(name: VideoFilterKind.short.rawValue, kind: .short)
 }
 
 final class VideoFilterStore: ObservableObject {
@@ -27,7 +38,16 @@ final class VideoFilterStore: ObservableObject {
     func apply(to videos: [VideoAsset]) -> [VideoAsset] {
         let base: [VideoAsset]
         if let filter = availableFilters.first(where: { $0.name == selectedFilterName }) {
-            base = videos.filter(filter.predicate)
+            switch filter.kind {
+            case .all:
+                base = videos
+            case .hd:
+                base = videos.filter { $0.width >= 1280 }
+            case .uhd:
+                base = videos.filter { $0.width >= 3840 }
+            case .short:
+                base = videos.filter { $0.duration <= 30 }
+            }
         } else {
             base = videos
         }
