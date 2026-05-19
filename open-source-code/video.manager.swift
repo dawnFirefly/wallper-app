@@ -43,11 +43,11 @@ class VideoWallpaperManager: NSObject {
     ///
     /// Keys:
     /// - `advancedWallpaperApply`: enables system saver install mode.
-    /// - `adaptMenuBar`: captures a still frame to let macOS adapt the menu bar.
+    /// - `enableMenuBarAdaptation`: captures a still frame to let macOS adapt the menu bar.
     @objc private func userDefaultsDidChange() {
         let advanced = UserDefaults.standard.bool(forKey: "advancedWallpaperApply")
-        let adapt = UserDefaults.standard.bool(forKey: "adaptMenuBar")
-        print("🔄 Settings changed → advanced: \(advanced), adaptMenuBar: \(adapt)")
+        let adapt = UserDefaults.standard.menuBarAdaptationEnabled
+        print("🔄 Settings changed → advanced: \(advanced), enableMenuBarAdaptation: \(adapt)")
     }
 
     /// Whether the advanced (system-level screensaver) apply mode is enabled.
@@ -57,7 +57,7 @@ class VideoWallpaperManager: NSObject {
 
     /// Whether menu bar adaptation via still desktop image is enabled.
     private var adaptMenuBar: Bool {
-        UserDefaults.standard.bool(forKey: "adaptMenuBar")
+        UserDefaults.standard.menuBarAdaptationEnabled
     }
 
     // MARK: - Public API (Applying / Restoring)
@@ -101,7 +101,7 @@ class VideoWallpaperManager: NSObject {
         for (index, screen) in screens.enumerated() {
 
             if (isAdvancedWallpaperApply != true) {
-                if UserDefaults.standard.bool(forKey: "adaptMenuBar") {
+                if UserDefaults.standard.menuBarAdaptationEnabled {
                     self.setDesktopStillFrame(from: url, for: screen)
                 }
             }
@@ -492,4 +492,13 @@ extension NSBezierPath {
 extension Notification.Name {
     /// Posted when a wallpaper has been (re)applied for a given screen (object = screenID `String`).
     static let wallpaperChanged = Notification.Name("VideoWallpaperManager.wallpaperChanged")
+}
+
+private extension UserDefaults {
+    var menuBarAdaptationEnabled: Bool {
+        if object(forKey: DefaultsBootstrap.menuBarAdaptationKey) != nil {
+            return bool(forKey: DefaultsBootstrap.menuBarAdaptationKey)
+        }
+        return bool(forKey: "adaptMenuBar")
+    }
 }

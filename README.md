@@ -187,7 +187,7 @@ swift build
 swift run wallper-app
 ```
 
-> **Note:** This restored repository now provides a standalone local-first implementation suitable for building, debugging, and extension on macOS, while still avoiding proprietary backend dependencies.
+> **Note:** This repository now provides a standalone local-first implementation suitable for building, debugging, and extension on macOS, while still avoiding proprietary backend dependencies.
 
 ---
 

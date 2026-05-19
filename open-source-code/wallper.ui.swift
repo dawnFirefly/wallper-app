@@ -100,8 +100,12 @@ private struct DashboardView: View {
                     set: { UserDefaults.standard.set($0, forKey: "pauseOnBattery") }
                 ))
                 Toggle("Adapt menu bar", isOn: Binding(
-                    get: { UserDefaults.standard.bool(forKey: "adaptMenuBar") },
-                    set: { UserDefaults.standard.set($0, forKey: "adaptMenuBar") }
+                    get: {
+                        UserDefaults.standard.bool(forKey: DefaultsBootstrap.menuBarAdaptationKey)
+                    },
+                    set: {
+                        UserDefaults.standard.set($0, forKey: DefaultsBootstrap.menuBarAdaptationKey)
+                    }
                 ))
             }
 
